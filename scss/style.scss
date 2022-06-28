@@ -16,8 +16,8 @@
 // Файл обнуляющих стилей
 @import "_nullstyle.scss";
 @import "_preloader.scss";
-@import "_ui.scss";
 @import "_mixins.scss";
+@import "_ui.scss";
 @import "_slider.scss";
 
 html {
@@ -309,9 +309,6 @@ body {
 
 		&__a-blasting {
 			color: #fff;
-			/*font-weight: 500;
-			font-size: 40px;
-			line-height: 50px;*/
 			font-weight: 700;
 			font-size: 100px;
 			line-height: 122px;
@@ -333,11 +330,11 @@ body {
 		}
 	}
 
-	@media (max-width: 573px) {
+	@media (max-width: 600px) {
 		&__title {
 			&__a-blasting {
-				font-size: 70px;
-				line-height: 80px;
+				font-size: calc(1em + 15vw);
+				line-height: calc(1em + 5vw);
 			}
 		}
 	}
@@ -368,7 +365,8 @@ body {
 
 .container {
 	padding: 0 165px;
-	background: #fff;
+	background: #000;
+	color: #fff;
 	font-size: 16px;
 
 	@media (max-width: 1366px) {
@@ -395,12 +393,8 @@ body {
 }
 
 .aquablasting {
-	padding-top: 80px;
-	margin: -80px 0 0 0;
-
-	&__title {
-		color: #000;
-	}
+	padding: 80px 0 0 0;
+	margin: -80px 0 300px 0;
 
 	&__content {
 		@include flexbox();
@@ -432,10 +426,12 @@ body {
 		flex: 1 1 auto;
 	}
 
-
+	@media (max-width: 600px) {
+		margin: -80px 0 200px 0;
+	}
 }
 
-.slider {
+.sliderjx {
 	@include flexbox();
 	justify-content: end;
 
@@ -455,28 +451,108 @@ body {
 }
 
 .about-us {
-	padding-top: 80px;
-	margin: -80px 0 400px 0;
+	padding: 80px 0 0 0;
+	margin: -80px 0 300px 0;
 
+	@media (max-width: 600px) {
+		margin: -80px 0 200px 0;
+	}
+}
 
-	p {
-		margin-top: 100px;
-		font-size: 100px;
+.slider {
+	position: relative;
+	width: 100%;
+
+	&__item {
+		width: calc(1em + 40vw);
+		transition: all 0.5s ease 0s;
 		text-align: center;
+		opacity: 0.4;
+		padding: 0 calc(1em + 1vw);
+		;
+
+		img {
+			width: 100%;
+		}
+
+		&.slick-center {
+			opacity: 1;
+		}
+
+		@media (max-width: 1000px) {
+			width: calc(1em + 60vw);
+		}
+
+		@media (max-width: 600px) {
+			width: calc(1em + 77vw);
+		}
 	}
 
-	.container {
-		border: #11476E solid 5px;
-		min-height: 500px;
+	.slick-arrow {
+		position: absolute;
+		top: 50%;
+		margin: -60px 20px 0 20px;
+		z-index: 10;
+		font-size: 0;
+		width: 40px;
+		height: 40px;
+
+		&.slick-disabled {
+			opacity: 0.2;
+		}
 	}
+
+	.slick-prev {
+		left: 0;
+		background: url('../img/icons/arrow-left.png') 0 0 / 100% no-repeat;
+
+	}
+
+	.slick-next {
+		right: 0;
+		background: url('../img/icons/arrow-right.png') 0 0 / 100% no-repeat;
+	}
+
+	.slick-dots {
+		@include flexbox();
+		align-items: center;
+		justify-content: center;
+
+		li {
+			list-style: none;
+			margin: 40px 10px;
+
+			&.slick-active button {
+				background: #fff;
+			}
+		}
+
+		button {
+			font-size: 0;
+			width: 10px;
+			height: 10px;
+			background: transparent;
+			border: 1px solid #fff;
+			border-radius: 50%;
+		}
+	}
+}
+
+.slick-list {
+	overflow: hidden
+}
+
+.slick-track {
+	@include flexbox();
+	flex: 0 0 33.333%;
 }
 
 .use {
 	padding: 80px 0 0 0;
-	margin: -80px 0 400px 0;
+	margin: -80px 0 300px 0;
 
 	.container {
-		background: #11476E;
+		color: #000;
 	}
 
 	&__title {
@@ -495,6 +571,10 @@ body {
 
 		padding: 0 0 20px 0;
 	}
+
+	@media (max-width: 600px) {
+		margin: -80px 0 200px 0;
+	}
 }
 
 .item {
@@ -511,8 +591,12 @@ body {
 		width: 100px;
 		height: 100px;
 		border-radius: 50%;
-		background: #D9D9D9;
+		//background: #000;
 		margin: 0 auto;
+
+		img {
+			width: 100%;
+		}
 	}
 
 	&__title {
@@ -636,10 +720,6 @@ body {
 		height: 100%;
 		top: 0;
 		left: 0;
-		//border-top-left-radius: 10%;
-		//border-bottom-right-radius: 10%;
-		border: #11476E solid 5px;
-
 	}
 
 	@media (max-width: 736px) {
@@ -650,6 +730,7 @@ body {
 .footer {
 	position: relative;
 	width: 100%;
+	box-shadow: 0 0 1px 1px #fff;
 
 	.container {
 		@include flexbox();
