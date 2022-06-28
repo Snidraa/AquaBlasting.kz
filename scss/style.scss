@@ -57,7 +57,7 @@ body {
 	min-width: 100%;
 	background: #000;
 	top: 0px;
-	z-index: 50;
+	z-index: 9;
 
 	&__row {
 		@include flexbox();
