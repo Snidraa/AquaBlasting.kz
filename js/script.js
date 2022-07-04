@@ -12,6 +12,18 @@ $(window).on('load', function () {
 	}, 4000);
 });
 
+$('.preloader').click(function (event) {
+	document.getElementById('preloader').style.display = 'none';
+	$('body').removeClass('lock');
+	$('.preloader__card').removeClass('card');
+});
+
+$('.preloader').tap(function (event) {
+	document.getElementById('preloader').style.display = 'none';
+	$('body').removeClass('lock');
+	$('.preloader__card').removeClass('card');
+});
+
 $('.icon-menu').click(function (event) {
 	$(this).toggleClass('active');
 	$('.menu__body').toggleClass('active');
