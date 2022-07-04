@@ -36,14 +36,7 @@ $(window).on('load', function () {
 	$('.slider').slick('setPosition');
 });
 
-
 $('.preloader').click(function (event) {
-	document.getElementById('preloader').style.display = 'none';
-	$('body').removeClass('lock');
-	$('.preloader__card').removeClass('card');
-});
-
-$('.preloader').tap(function (event) {
 	document.getElementById('preloader').style.display = 'none';
 	$('body').removeClass('lock');
 	$('.preloader__card').removeClass('card');
