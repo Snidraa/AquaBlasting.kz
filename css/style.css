@@ -1377,10 +1377,13 @@ body {
 
 .footer__copyright {
   font-size: 12px;
-  line-height: 15px;
+  line-height: 16px;
   color: #D8D8D8;
   text-align: center;
   padding-bottom: 23px;
+}
+
+.footer__copyright span:last-child {
   white-space: nowrap;
 }
 
