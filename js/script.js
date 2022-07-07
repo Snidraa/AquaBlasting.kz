@@ -6,9 +6,9 @@ $(window).on('load', function () {
 		$('.preloader__card').addClass('card');
 	}, 510);
 	setTimeout(function () {
+		$('body').removeClass('lock');
 		document.getElementById('preloader').style.display = 'none';
 		document.body.classList.add('loaded');
-		$('body').removeClass('lock');
 	}, 4000);
 	$('.slider').slick({
 		dots: true,

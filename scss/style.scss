@@ -25,7 +25,6 @@ html {
 }
 
 body {
-	height: 100%;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
 	color: #000;
@@ -37,19 +36,9 @@ body {
 	}
 }
 
-.page {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	@include flexbox();
-	flex-direction: column;
-}
-
 .wrapper {
 	overflow: hidden;
-	min-height: 100%;
+	min-height: 100vh;
 }
 
 .header {
@@ -68,13 +57,13 @@ body {
 
 	&__logo {
 		position: absolute;
-		width: 60px;
+		height: 60px;
 		left: 50%;
 		top: 10px;
 		transform: translate(-50%, 0px);
 
 		img {
-			width: 100%;
+			height: 100%;
 		}
 
 		@media (max-width: 939px) {
@@ -286,16 +275,28 @@ body {
 	}
 }
 
+.page {
+	position: relative;
+	top: 0;
+	left: 0;
+	@include flexbox();
+	flex-direction: column;
+}
+
 .main-screen {
 	position: relative;
-	flex: 1 0 100%;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url('../img/bg-main.jpg') no-repeat;
-	background-color: rgba(0, 0, 0, 0.25);
+	background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url('../img/bg-main.jpg') no-repeat;
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
+	flex: 1 0 100%;
+
+	&__content {
+		width: 100vw;
+		height: 100vh;
+	}
 
 	&__title {
 		position: absolute;
@@ -304,6 +305,7 @@ body {
 		left: 50%;
 		z-index: 2;
 		transform: translate(-50%, -50%);
+		//mix-blend-mode: overlay;
 
 		&__a-blasting {
 			color: #fff;
@@ -319,7 +321,6 @@ body {
 		left: 50%;
 		z-index: 2;
 		transform: translate(-48.5%, 0px);
-
 	}
 
 	@media (max-height: 549px) {
@@ -353,8 +354,8 @@ body {
 }
 
 .content {
-	flex: 1 0 100%;
 	position: relative;
+	flex: 1 0 100%;
 	background: url('../img/bg-content1.jpg') no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -466,8 +467,7 @@ body {
 		transition: all 0.5s ease 0s;
 		text-align: center;
 		opacity: 0.4;
-		padding: 0 calc(1em + 1vw);
-		;
+		margin: 0 calc(1em + 1.5vw);
 
 		img {
 			width: 100%;
@@ -475,6 +475,8 @@ body {
 
 		&.slick-center {
 			opacity: 1;
+			transition: all 0.5s ease 0.25s;
+			transform: scale(1.1);
 		}
 
 		@media (max-width: 1000px) {
@@ -543,6 +545,7 @@ body {
 .slick-track {
 	@include flexbox();
 	flex: 0 0 33.333%;
+	align-items: center;
 }
 
 .use {
@@ -589,7 +592,6 @@ body {
 		width: 100px;
 		height: 100px;
 		border-radius: 50%;
-		//background: #000;
 		margin: 0 auto;
 
 		img {
@@ -718,6 +720,7 @@ body {
 		height: 100%;
 		top: 0;
 		left: 0;
+		border-style: none;
 	}
 
 	@media (max-width: 736px) {
@@ -729,11 +732,11 @@ body {
 	position: relative;
 	width: 100%;
 	box-shadow: 0 0 1px 1px #fff;
+	margin-top: auto;
 
 	.container {
 		@include flexbox();
 		flex-direction: column;
-		//background: #11476E;
 		background: #000;
 		color: #fff;
 	}
@@ -744,6 +747,7 @@ body {
 		color: #D8D8D8;
 		text-align: center;
 		padding-bottom: 23px;
+		white-space: nowrap;
 	}
 }
 
